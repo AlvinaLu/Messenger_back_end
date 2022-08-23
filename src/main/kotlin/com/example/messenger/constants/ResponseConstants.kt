@@ -1,0 +1,17 @@
+package com.example.messenger.constants
+
+enum class ResponseConstants(val value: String) {
+    SUCCESS("success"), ERROR("error"),
+    UNKNOWN("UNKN"),
+    USERNAME_UNAVAILABLE("USR_0001"),
+    USER_TOKEN_IS_NOT_VALID("USR_0002"),
+    INVALID_USER_ID("USR_002"),
+    EMPTY_STATUS("USR_003"),
+    EMPTY_URL("USR_004"),
+    EMPTY_TOKEN("USR_005"),
+    MESSAGE_EMPTY("MES_001"),
+    MESSAGE_RECIPIENT_INVALID("MES_002"),
+    MESSAGE_DOESNT_EXIST("MES_003"),
+    ACCOUNT_DEACTIVATED("GLO_001"),
+    CONVERSATION_INVALID("CONVR_001")
+}

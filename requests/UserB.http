@@ -1,0 +1,62 @@
+POST localhost:8080/users/registrations
+Content-Type: application/json
+
+{
+  "username": "alvinaB",
+  "phoneNumber": "12345678901",
+  "password": "Hello123"
+}
+
+###
+POST localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "alvinaB",
+  "password": "Hello123"
+}
+
+> {%
+client.log(response.headers.valueOf("Authorization"))
+client.global.set("token1",(response.headers.valueOf("Authorization")))
+ %}
+
+###
+
+GET localhost:8080/users
+Content-Type: application/json
+Authorization: {{token1}}
+
+###
+GET localhost:8080/conversations
+Content-Type: application/json
+Authorization: {{token1}}
+
+###
+GET localhost:8080/conversations/3/0
+Content-Type: application/json
+Authorization: {{token1}}
+
+###
+POST localhost:8080/messages
+Content-Type: application/json
+Authorization: {{token1}}
+
+{
+  "recipientId": 1,
+  "message": "Hello, AlvinaA"
+}
+
+###
+POST localhost:8080/messages/read
+Content-Type: application/json
+Authorization: {{token1}}
+
+{
+  "recipientId": 1,
+  "messageId": 4
+}
+
+
+
+

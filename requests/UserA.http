@@ -1,0 +1,144 @@
+POST localhost:8080/users/registrations
+Content-Type: application/json
+
+{
+  "username": "Alvina1",
+  "phoneNumber": "12345678901",
+  "password": "H"
+}
+
+###
+
+POST localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "Alvina1",
+  "password": "H"
+}
+
+> {%
+client.log(response.headers.valueOf("Authorization"))
+client.global.set("token",(response.headers.valueOf("Authorization")))
+ %}
+
+
+
+###
+
+GET localhost:8080/users
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+GET localhost:8080/conversations
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+GET localhost:8080/conversations/3/7
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST localhost:8080/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 2,
+  "message": "Hello, AlvinaB",
+  "type": "TEXT",
+  "url": "",
+  "latitude": "0.001",
+  "longitude": "0.003"
+}
+
+###
+POST localhost:8080/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 2,
+  "message": "Hello, AlvinaB",
+  "type": "DOCUMENT",
+  "url": "",
+  "latitude": "0.001",
+  "longitude": "0.003"
+}
+###
+POST localhost:8080/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 2,
+  "message": "img-0062.jpg",
+  "type": "DOCUMENT",
+  "url": "https://firebasestorage.googleapis.com/v0/b/messenger-api-6d6b5.appspot.com/o/images%2F5390a6e8-4dd4-4c35-91cf-19475f12ef9c?alt=media&token=a68c2757-75a3-42b5-8f8c-51abade99d7d",
+  "latitude": "0.001",
+  "longitude": "0.003"
+}
+
+###
+POST localhost:8080/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 2,
+  "message": "dfsfg",
+  "type": "LOCATION",
+  "url": "nnn",
+  "latitude": "0.001",
+  "longitude": "0.003"
+}
+
+###
+
+GET localhost:8080/users/details
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST localhost:8080/messages/read
+Content-Type: application/json
+Authorization: {{token1}}
+
+{
+  "recipientId": 1,
+  "messageId": 1232235446
+}
+
+###
+POST localhost:8080/users/updateUrl
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "imgUrl": "ssss"
+}
+
+###
+POST localhost:8080/users/updateOnline
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST localhost:8080/users/token
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "notificationToken": "ssss"
+}
+
+
+
+
+
+
+
+
+

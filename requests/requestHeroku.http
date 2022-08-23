@@ -1,0 +1,166 @@
+POST https://messenger-lushnalv.herokuapp.com/users/registrations
+Content-Type: application/json
+
+{
+  "username": "Kenny McCormic",
+  "phoneNumber": "17198384002",
+  "password": "Hello123"
+}
+
+
+
+###
+
+POST https://messenger-lushnalv.herokuapp.com/login
+Content-Type: application/json
+
+{
+  "username": "Kenny McCormic",
+  "password": "Hello123"
+}
+> {%
+client.log(response.headers.valueOf("Authorization"))
+client.global.set("token",(response.headers.valueOf("Authorization")))
+ %}
+
+###
+GET https://messenger-lushnalv.herokuapp.com/users/1
+Authorization: {{token}}
+
+###
+
+GET https://messenger-lushnalv.herokuapp.com/users/details
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+GET https://messenger-lushnalv.herokuapp.com/users
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+PUT https://messenger-lushnalv.herokuapp.com/users
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 1,
+  "username": "alvina1",
+  "phoneNumber": "123456789019",
+  "status": "activated"
+}
+
+###
+GET https://messenger-lushnalv.herokuapp.com/conversations
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+GET https://messenger-lushnalv.herokuapp.com/conversations/50/0
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST https://messenger-lushnalv.herokuapp.com/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 23,
+  "message": "Location",
+  "type": "LOCATION",
+  "url": "",
+  "latitude": "49.0000000",
+  "longitude": "14.4977473"
+}
+###
+POST https://messenger-lushnalv.herokuapp.com/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 44,
+  "message": "img-006u2.jpg",
+  "type": "IMAGE",
+  "url": "https://firebasestorage.googleapis.com/v0/b/messenger-api-6d6b5.appspot.com/o/images%2F53880dc2-c27f-41a0-a287-604531fa6f53?alt=media&token=acad305e-516f-490e-abdd-879de1bcd937",
+  "latitude": "",
+  "longitude": ""
+}
+###
+POST https://messenger-lushnalv.herokuapp.com/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 2,
+  "message": "pddfkdjfj.pdf",
+  "type": "DOCUMENT",
+  "url": "https://firebasestorage.googleapis.com/v0/b/messenger-api-6d6b5.appspot.com/o/files%2F5115715f-2bc4-41d7-bd42-6ed55f551b83?alt=media&token=ed209708-a424-44fa-a385-8753c0096ad0",
+  "latitude": "",
+  "longitude": ""
+}
+###
+POST https://messenger-lushnalv.herokuapp.com/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 11,
+  "message": "Hello fjjfgj gjgjgj gjgjgjgjjg gjjgjgjgjgjg   gjgjg ",
+  "type": "TEXT",
+  "url": "",
+  "latitude": "",
+  "longitude": ""
+}
+
+###
+POST https://messenger-lushnalv.herokuapp.com/messages/read
+Content-Type: application/json
+Authorization: {{token1}}
+
+{
+  "recipientId": 1,
+  "messageId": 4
+}
+
+###
+POST https://messenger-lushnalv.herokuapp.com/users/updateUrl
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 2,
+  "username": "alvina2",
+  "phoneNumber": "12345678901",
+  "status": "activated",
+  "createdAt": "2022-06-28T19:10:13.528067",
+  "imgUrl": "xcvbnvmb"
+}
+
+###
+POST https://messenger-lushnalv.herokuapp.com/users/updateOnline
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST https://messenger-lushnalv.herokuapp.com/users/token
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "notificationToken": "none"
+}
+
+###
+#PUT https://messenger-lushnalv.herokuapp.com/users
+#Content-Type: application/json
+#Authorization: {{token}}
+#
+#{
+#  "status": "deactivated"
+#}
+
+

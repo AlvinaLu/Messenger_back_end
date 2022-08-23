@@ -1,0 +1,121 @@
+POST localhost:8080/users/registrations
+Content-Type: application/json
+
+{
+  "username": "alvina2",
+  "phoneNumber": "12345678901",
+  "password": "Hello123"
+}
+
+###
+
+POST localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "alvina2",
+  "password": "Hello123"
+}
+
+> {%
+client.log(response.headers.valueOf("Authorization"))
+client.global.set("token",(response.headers.valueOf("Authorization")))
+ %}
+
+###
+GET localhost:8080/users/4
+Authorization: {{token}}
+
+###
+
+GET localhost:8080/users/details
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+GET localhost:8080/users
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+POST localhost:8080/users/updateUrl
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 1,
+  "username": "alvina1",
+  "phoneNumber": "12345678901",
+  "status": "activated",
+  "createdAt": "2022-06-28T19:10:13.528067",
+  "imgUrl": "xcvbnvmb"
+}
+
+###
+
+PUT localhost:8080/users
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 1,
+  "username": "alvina1",
+  "phoneNumber": "123456789019",
+  "status": "activated"
+}
+
+###
+
+PUT localhost:8080/users/token
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "id": 1,
+  "username": "alvina1",
+  "phoneNumber": "12345678901",
+  "status": "activated",
+  "createdAt": "2022-06-28T19:10:13.528067",
+  "imgUrl": "xcvbnvmb",
+  "notificationToken": "sdddd"
+}
+
+###
+GET localhost:8080/conversations
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+GET localhost:8080/conversations/3/8
+Content-Type: application/json
+Authorization: {{token}}
+###
+
+POST localhost:8080/messages
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "recipientId": 1,
+  "message": "Hello",
+  "type": "TEXT",
+  "url": ""
+}
+
+###
+#
+#POST localhost:8080/notification/token
+#Content-Type: application/json
+#Authorization: {{token}}
+#
+#{
+#  "title": "You have a new message from Alvina",
+#  "message": "Hello, how are you?",
+#  "topic": "String",
+#  "token": "dN6zDhfeTPmuZe-9swHoxm:APA91bG2G4XwQYMJigC_nAWo6cnr-FREStFQEXAHlyoiteP9sGfu6Ly2EBvWiL-41b7NTre0d3N6TqqhHilpHLqVkC_imc6p1nVyzDRkCZ2uAmblEA7oCRdyo1VadlfXrs5fsj3dHhME"
+#}
+
+
