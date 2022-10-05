@@ -2,7 +2,7 @@ POST https://messenger-lushnalv.herokuapp.com/users/registrations
 Content-Type: application/json
 
 {
-  "username": "Kenny McCormic",
+  "username": "Kenny McCormic2",
   "phoneNumber": "17198384002",
   "password": "Hello123"
 }
@@ -15,7 +15,7 @@ POST https://messenger-lushnalv.herokuapp.com/login
 Content-Type: application/json
 
 {
-  "username": "Kenny McCormic",
+  "username": "Kenny McCormic2",
   "password": "Hello123"
 }
 > {%
